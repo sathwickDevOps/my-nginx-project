@@ -11,10 +11,10 @@ jobs:
 
         steps:
             - name: Checkout Code
-              uses: actions/checkout@4
+              uses: actions/checkout@v4
 
             - name: Set up Docker Build
               run: docker build -t my-nginx-app ./nginx
 
             - name: Run Container
-              run: docker run -d -p 8080:80 my-nginx-app
+              run: docker run -d -p 7070:80 my-nginx-app
