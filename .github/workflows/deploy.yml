@@ -1,0 +1,20 @@
+name: Deploy NGINX
+
+on: 
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@4
+
+            - name: Set up Docker Build
+              run: docker build -t my-nginx-app ./nginx
+
+            - name: Run Container
+              run: docker run -d -p 8080:80 my-nginx-app
